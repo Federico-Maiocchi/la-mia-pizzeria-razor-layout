@@ -7,4 +7,9 @@
     <RootNamespace>la_mia_pizzeria_static</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="Views\Home\Footer.razor" />
+    <Content Remove="Views\Home\Header - Copia.cshtml" />
+  </ItemGroup>
+
 </Project>

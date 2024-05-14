@@ -1,6 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-    Layout = null;
+    Layout = "_CustomLayout";
 
     List<Pizza> pizze = new List<Pizza>();
 
@@ -50,76 +50,27 @@
     <h1 class="display-4 p-1">Pizzeria ristorante</h1>
     <h2 class="text-center">Lista di pizze</h2>
 
-    <div class="container p-2">
-        <div class="row">
+    <div class="container pt-1">
+        <div class="row justify-content-center">
 
             @foreach (var itemPizza in pizze)
             {
-                <div class="col-4">
-                    <div class="card-pizza">
-                        <h4 class="p-2">@itemPizza.Nome</h4>
-                        <img src="@Url.Content(itemPizza.Image)" alt="@itemPizza.Nome" />
-                        <p class="p-1">@itemPizza.Description</p>
-                        <p class="p-1">Prezzo: @itemPizza.Price &euro;</p>
+                <div class="col-4  p-2">
+
+                    <div class="card card-pizza" style="width: 18rem;">
+                        <img src="@Url.Content(itemPizza.Image)" class="card-img-top" alt="@itemPizza.Nome">
+                        <div class="card-body">
+                            <h5 class="card-title">@itemPizza.Nome</h5>
+                            <p class="card-text">@itemPizza.Description</p>
+                            <p class="card-text">Prezzo: @itemPizza.Price &euro;</p>
+                            @* <a href="#" class="btn btn-primary">Go somewhere</a> *@
+                        </div>
                     </div>
+
                 </div>
             }
         </div>
     </div>
 
 </div>
-
-
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing:border-box;
-    }
-
-    .p-1 {
-        padding: 5px;
-    }
-
-    .p-2 {
-        padding: 10px;
-    }
-
-    .text-center {
-        text-align:center;
-    }
-
-    .container {
-        max-width: 900px;
-        margin: 0 auto;
-    }
-    
-    .row {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;  
-    }
-
-    .col-4 {
-        flex-basis: calc((100% / 12) * 4);
-        padding: 5px; 
-        
-    }
-
-    .col-6 {
-        flex-basis: calc((100% / 12) * 6);   
-    }
-
-    .card-pizza {
-        border: 1px solid black;
-        height: 100%;
-        border-radius: 22px;
-        
-    }
-
-    img {
-        width: 240px;
-        height: 150px;
-    }
-</style>
 
