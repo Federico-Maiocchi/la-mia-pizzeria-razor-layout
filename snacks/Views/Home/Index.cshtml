@@ -12,7 +12,7 @@
     };
 
     // es 3.
-    string phrase = "nel mezzo del cammin di nostra vita";
+    //string phrase = "nel mezzo del cammin di nostra vita";
 
     static int CountCharA(string phrase)
     {
@@ -29,9 +29,49 @@
         return count;
     }
 
-    
+    // es 4.
 
-    
+    List<int> GenerateNumberRandom()
+    {
+        Random rnd = new Random();
+        List<int> listIntRandom = new List<int>();
+
+        for (int i = 0; i < 20; i++)
+        {
+            listIntRandom.Add(rnd.Next(1, 90 + 1));
+        }
+
+        List<int> listFilteredNumbers = new List<int>();
+        foreach (int number in listIntRandom)
+        {
+            if (number >= 20 && number <= 70)
+            {
+                listFilteredNumbers.Add(number);
+            }
+        }
+
+        return listFilteredNumbers;
+    }
+
+    //Console.WriteLine(string.Join(", ", GenerateNumberRandom()));
+
+    // es 5.
+
+    DateTime dateNow = DateTime.Now;
+
+    string convertStringDateNow = dateNow.ToString("yyyy-MM-dd HH:mm:ss");
+
+
+    // es 6. 
+
+    DateTime date7DaysAGo = dateNow.AddDays(-7);
+
+    string today = dateNow.ToString("dddd");
+
+    DateTime inAYear = dateNow.AddYears(1);
+
+    string nameDayNextYear = inAYear.ToString("dddd");
+
 
 
 }
@@ -54,9 +94,37 @@
     @* 3. Contare quante volte la lettera a è presente nalla frase "nel mezzo del cammin di nostra vita"
     e stampare questo valore in pagina *@
 
-    <p>Conteggio della lettera "a" in questa frase: "nel mezzo del cammin di nostra vita" - tot: @CountCharA("nel mezzo del cammin di nostra vita")</p>
+    <p>
+        Conteggio della lettera "a" in questa frase: 
+        "nel mezzo del cammin di nostra vita" - tot: @CountCharA("nel mezzo del cammin di nostra vita")
+    </p>
 
 
     @* 4. Creare una List<int> di 20 numeri interi (generati random da 1 a 90, 1 e 90 inclusi) 
     e mostrare in pagina solo i numeri compresi tra 20 e 70 *@
+
+    <p>numeri casuali da 1 a 90 compresi da 20 e 70:</p>
+    <div>
+        @foreach (var number in GenerateNumberRandom())
+        {
+            <span>@number - </span>
+        }
+    </div>
+
+
+    @* 5. Stampare in pagina la data e l'ora attuale (usando la classe DateTime) con il formato anno-mese-giorno ore:minuti:secondi *@
+
+    <p>Data e ora attuale: @convertStringDateNow  </p>
+
+   @*  6. Partendo dalla data di oggi (usando la classe DateTime) stampare in pagina
+    a. la data di 7 giorni fa
+    b. che giorno della settimana è oggi (il risultato dovrà  essere il nome del giorno (Lunedì, Martedì, ...)
+    c. che giorno della settimana sarà  nello stesso giorno e mese di oggi ma tra un anno (il risultato dovrà
+    essere il nome del giorno (Lunedì, Martedì, ...) *@
+
+    <p>la data di 7 giorni fa: @date7DaysAGo</p>
+
+    <p>che giorno della settimana è oggi: @today</p>
+
+    <p>che giorno della settimana sarà  nello stesso giorno e mese di oggi ma tra un anno: @nameDayNextYear </p>
 </div>
